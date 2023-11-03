@@ -4,25 +4,6 @@ import "./Accordion2.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 const Accordion2 = () => {
-  var acc = document.getElementsByClassName("accordion1");
-  var i;
-
-  for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function () {
-      /* Toggle between adding and removing the "active" class,
-      to highlight the button that controls the panel */
-      this.classList.toggle("active");
-
-      /* Toggle between hiding and showing the active panel */
-      var panel1 = this.nextElementSibling;
-      if (panel1.style.display === "block") {
-        panel1.style.display = "none";
-      } else {
-        panel1.style.display = "block";
-      }
-    });
-  }
-
   return (
     <div className="Accordion2">
       <h2>Accordion 2</h2>
@@ -44,5 +25,29 @@ const Accordion2 = () => {
     </div>
   );
 };
+var acc2 = document.getElementsByClassName("accordion2");
+
+for (let i2 = 0; i2 < acc2.length; i2++) {
+  acc2[i2].addEventListener("click", function () {
+    for (let j = 0; j < acc2.length; j++) {
+      acc2[j].classList.remove("active2");
+      if (j !== i2) {
+        acc2[j].nextElementSibling.style.maxHeight = null;
+      }
+    }
+    this.classList.add("active2");
+    var panel2 = this.nextElementSibling;
+    if (panel2.style.maxHeight) {
+      panel2.style.maxHeight = null;
+    } else {
+      panel2.style.maxHeight = panel2.scrollHeight + "px";
+    }
+    if (panel2.style.display === "block") {
+      return null;
+    } else {
+      panel2.style.maxHeight = panel2.scrollHeight + "px";
+    }
+  });
+}
 
 export default Accordion2;

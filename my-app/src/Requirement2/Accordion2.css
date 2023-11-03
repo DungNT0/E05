@@ -11,7 +11,7 @@
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active,
+.active2,
 .accordion2:hover {
   background-color: #ccc;
 }
@@ -19,9 +19,11 @@
 /* Style the accordion panel. Note: hidden by default */
 .panel2 {
   padding: 0 18px;
+  font-size: 18px;
   background-color: white;
-  display: none;
+  max-height: 0;
   overflow: hidden;
+  transition: max-height 0.3s ease-out;
 }
 
 .accordion2:after {
@@ -33,7 +35,7 @@
   margin-left: 5px;
 }
 
-.active:after {
+.active2:after {
   content: "\2796";
   /* Unicode character for "minus" sign (-) */
 }
